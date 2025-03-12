@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BookCard from "./components/bookcard";
 
 function App() {
   const books = [
@@ -34,7 +35,19 @@ function App() {
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
+  return(
+    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {books.map((book) => (
+        <BookCard
+          key={book.id}
+          image={book.image}
+          name={book.name}
+          genre={book.genre}
+          author={book.author}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default App;
